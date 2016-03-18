@@ -1,0 +1,12 @@
+remove node0
+remove [node0, node1]
+
+remove var
+remove [var0, var2, node0]
+remove obj.prop
+remove array[0]
+
+remove ctxVar
+remove [&ctxVar, &ctxVar2]
+remove [&ctxArray[0], node0, var0]
+remove &ctxObj.subProp

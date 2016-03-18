@@ -1,0 +1,76 @@
+let a = 'a'
+let b = a
+let c = two()
+
+instance node0 = JavaNode
+instance node0, node1 = JavaNode
+instance comp = "ticker" Ticker
+instance comp, comp2 = ConsolePrinter/42
+instance group = "sync" WSGroup/1 {}
+instance group, group2 = WSGroup/tdefVersion duVersions
+
+for (i, elem in [a, b, c]) {
+
+}
+
+add node0 comp
+add id1 [comp, comp2, comp3, obj.array[0].comp4]
+add obj.prop someVar
+
+
+function hello() {
+    add node0 NodeJava
+}
+
+function test(test) {
+    set node0#a = test
+}
+
+function test(a) {
+    return "ok"
+}
+
+// maybe we could provide sugar that says that if you do not specify a name, it gives the same as the variable name by default
+instance node0, node1 = JavaNode
+instance ticker = Ticker
+instance printer0, printer1 = ConsolePrinter
+instance chan = WSChan
+
+add node0 printer0
+add node1 printer1
+
+// using ':' instead of '.' to say "the port 'tick' in the component 'ticker' within the node 'node0'
+// we get rid of the ambiguity introduced by the dotted identifier when refering to variables
+bind chan node0:ticker->tick
+bind chan [node0:printer0<-input, node1:printer1<-input]
+
+// with the possibility to do such thing:
+let conf = { name: 'node0' }
+bind chan conf.name:ticker->tick // <- no ambiguity (no need for @)
+
+let someVar = 'node1'
+let version = "43"
+let obj = {
+  name: 'ticker'
+}
+let compNames = [ 'one', "two", random() ]
+
+instance node0 = "node0" JavaNode/42
+instance node1 = someVar JavaNode/version { js: { name: 'other_name', version: '50' } }
+instance ticker0 = obj.name/Ticker
+instance ticker1 = "ticker1" Ticker/2
+
+add node0 ticker0
+add node1 ticker1
+
+// adds Ticker components to the given node using the given
+// component names in the second parameter (array)
+function addComps(node, compNames) {
+  for (name in compNames) {
+    instance comp = name Ticker
+    add node comp
+  }
+}
+
+addComps(node0, compNames)
+addComps(node1, compNames)

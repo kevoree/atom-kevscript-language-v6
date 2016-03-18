@@ -1,0 +1,19 @@
+set node0#logLevel = "DEBUG"
+set node0:ticker#delay = "9000"
+
+bind chan node0:ticker->tick
+bind obj.chan node0:printer<-input
+
+unbind chan [node0:ticker->tick, node0:printer<-input]
+
+instance node0 = JavascriptNode
+instance comp0, comp1 = Ticker
+
+let comps = [comp0, comp1]
+
+add node0 comps
+
+for (comp in comps) {
+  bind chan comp->tick
+  bind chan node0:comp.name->tick
+}

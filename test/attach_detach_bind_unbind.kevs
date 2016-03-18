@@ -1,0 +1,10 @@
+attach group0 node0
+detach group0 node0
+bind chan0 node1.comp1.input
+bind chan0 [node0.comp1.input, node1.comp2.output, node1.comp3.input]
+unbind chan0 [node0.comp1.input, node1.comp2.output, node1.comp3.input]
+
+
+let x = "group0"
+let y = "node0"
+attach x y

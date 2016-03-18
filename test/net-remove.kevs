@@ -1,0 +1,3 @@
+net-remove node0 [a.b.c, d.e.f]
+net-remove a1 a
+net-remove nodejava z.l0.ip

@@ -1,0 +1,32 @@
+let a = "1"
+let b = 'wow'
+let a = 'foo'
+let array = [ 'one', two, three() ]
+let a = {}
+let a = {
+   a: "1"
+}
+
+let a = {
+  key1 : {
+    va : [ something, there(), "yolo"]
+  },
+  key2 : {
+    inner: {
+      subInner: 'thing',
+      secondInner: a.key1.va,
+      arrayVal: array[2]
+    }
+  },
+  key3 : b,
+  foo: 'bar' + 'baz'
+}
+
+let a = &a.b.c.d
+let g = @random()
+
+let a = "foo\\n"
+let a = 'yo'
+let a = '\\n'
+let a = ""
+let a = "\\\\t"

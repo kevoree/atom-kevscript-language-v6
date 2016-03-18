@@ -1,0 +1,17 @@
+storages-init {
+  unix: {
+    key0: "unix:///tmp/foo.socket"
+  },
+  ws: {
+    key0: "ws://ws.kevoree.org/my-model",
+    key1: "ws://localhost:8080"
+  },
+  mqtt: {
+    key0: "mqtt://mqtt.kevoree.org/id/0",
+    key1: "mqtt://mqtt.kevoree.org/id/42"
+  }
+}
+
+storages-merge mqtt { key2: "mqtt://mqtt.kevoree.org/id/1000" }
+storages-remove unix
+storages-remove mqtt.key0

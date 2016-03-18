@@ -1,0 +1,65 @@
+let confs = {
+    chan: {
+        host: &adresses.braindead.ws
+    },
+    group: {
+        host: &adresses.braindead.ws,
+        path: "/edisons"
+    },
+    nodes: {
+        javascript: {
+            version: "5.3.3"
+        }
+    }
+}
+
+function initWebNode(nodeName, group, nodeVersion) {
+    instance web = nodeName JavascriptNode nodeVersion
+    instance chart1, chart2, chart3 = Chart/2
+    add web [chart1, chart2, chart3]
+    attach group web
+    return web
+}
+
+function initEdison(nodeName, group, nodeVersion) {
+    instance edison = nodeName JavascriptNode nodeVersion
+    instance lcd = eu_heads.HeadsLCDDisplayComp/2
+    instance led = eu_heads.HeadsDigitalWriteComp
+    instance noise, light = eu_heads.HeadsAnalogSensorComp
+    add edison [lcd, led, noise, light]
+    set lcd#test = "false"
+    set led#pin = "7"
+    set led#test = "false"
+    set light#pin = "2"
+    set light#test = "false"
+    set noise#test = "false"
+    set temp#pin = "1"
+    set temp#test = "false"
+    attach group edison
+}
+
+function bindByChan(port0, port1, chanName, host, uuid) {
+    instance chan = chanName RemoteWSChan/5
+    set chan#host = host
+    set chan#uuid = uuid
+    bind chanName [port0, port1]
+}
+
+add mainGroup RemoteWSGroup
+set mainGroup#host = confs.group.host
+set mainGroup#path = confs.group.path
+set mainGroup#answerPull/edison2 = "false"
+set mainGroup#answerPull/edison3 = "false"
+set mainGroup#answerPull/edison4 = "false"
+set mainGroup#answerPull/edison5 = "false"
+
+for (nodeName in ["edison1", "edison2", "edison3", "edison4", "edison5"]) {
+    initEdison(nodeName, mainGroup, confs.nodes.javascript.version)
+}
+
+for(elem in [{ nodeName : "web1", target: edison1 }, { nodeName : "web2", target: edison2 }, { nodeName : "web3", target: edison3 }]) {
+    let node = initWebNode(elem.nodeName, mainGroup, confs.nodes.javascript.version)
+    bindByChan(node.chart2.input, elem.target.temp.out, "chan", conf.chan.host, "edison1Temp")
+    bindByChan(node.chart3.input, elem.target.light.out, "chan1", conf.chan.host, "edison1Light")
+    bindByChan(node.chart1.input, elem.target.noise.out, "chan2", conf.chan.host, "edison1Noise")
+}

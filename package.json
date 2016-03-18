@@ -1,0 +1,38 @@
+{
+  "name": "language-kevscript-v6",
+  "version": "0.1.0",
+  "description": "KevScript v6 language support in Atom",
+  "main": "lib/main",
+  "keywords": [
+    "kevoree",
+    "grammar",
+    "kevscript",
+    "script",
+    "syntax",
+    "highlighter"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevoree/atom-kevscript-language.git"
+  },
+  "license": "LGPL-3.0",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "provide"
+      }
+    },
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  },
+  "dependencies": {
+    "antlr4": "^4.5.2",
+    "atom-linter": "^4.5.0"
+  }
+}

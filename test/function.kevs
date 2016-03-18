@@ -1,0 +1,13 @@
+function hello() {
+    add node0 ticker
+}
+
+function test(test) {
+    set node0#a = test
+}
+
+function withReturn () {
+  return {
+    some: 'thing'
+  }
+}

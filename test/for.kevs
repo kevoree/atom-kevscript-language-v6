@@ -1,0 +1,12 @@
+/* simple iterator only */
+for(value in [{}]) {}
+
+/* simple loop with index and iterator */
+for (index, value in ['node0', 'node1']) {}
+
+/* simple loop wi 42  2 th a few instructions */
+for (index, value in [{node: 'node0', a:"3"}, {node: 'node1', a:"4"}]) {
+    set node#param = value.a
+}
+
+for (index, value in getArray()) {}

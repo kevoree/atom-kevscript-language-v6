@@ -1,0 +1,12 @@
+let comp = { name: 'someName' }
+for (a in b) {
+  bind chan node0:comp.name->tick
+}
+
+/**
+ * foobsabsabsab
+ doing some test
+ */
+function f() {
+  bind aaa bbb:ccc->ddd
+}

@@ -1,0 +1,12 @@
+stop node0
+stop [node0, node1]
+
+stop var
+stop [var0, var2, node0]
+stop obj.prop
+stop array[0]
+
+stop ctxVar
+stop [&ctxVar, &ctxVar2]
+stop [&ctxArray[0], node0, var0]
+stop &ctxObj.subProp

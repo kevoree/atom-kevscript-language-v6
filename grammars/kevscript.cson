@@ -1,0 +1,156 @@
+'name': 'KevScript v6'
+'scopeName': 'source.kevs'
+'fileTypes': [ 'kevs' ]
+'foldingStartMarker': '{'
+'foldingStopMarker': '}'
+'patterns': [
+  { 'include': '#comments' }
+  {
+    'match': '\\b(add|remove|attach|detach|start|stop|set|bind|unbind|net-init|net-merge|net-remove|meta-init|meta-merge|meta-remove)\\b'
+    'name': 'keyword.statement.kevscript'
+  }
+  {
+    'match': '\\b(instance|let|function)\\b'
+    'name': 'variable.kevscript'
+  }
+  {
+    'match': '\\bfor\\b'
+    'name': 'keyword.control.repeat.kevscript'
+  }
+  {
+    'begin': '([a-zA-Z_]([a-zA-Z0-9_-]*[a-zA-Z0-9_])?)\\s*\\('
+    'end': '\\)'
+    'beginCaptures': {
+      '1': { 'name': 'entity.name.function.kevscript' }
+    }
+    'patterns': [
+      { 'include': '$self' }
+    ]
+  }
+  {
+    'match': '\\b(?<=add|attach|detach|bind|unbind|net-remove|meta-remove)\\b\\s+([^\\s]+)'
+    'captures': {
+      '1': { 'name': 'entity.name.tag.kevscript' }
+    }
+  }
+  { 'include': '#strings' }
+  {
+    'match': '\\+|=|\\bin\\b|:|#|->|<-'
+    'name': 'keyword.operator.kevscript'
+  }
+  {
+    'match': '&|@'
+    'name': 'variable.language.kevscript'
+  }
+  {
+    'match': 'return'
+    'name': 'keyword.control.flow.kevscript'
+  }
+  {
+    'match': '[A-Z]([a-zA-Z0-9_-]*[a-zA-Z0-9_])?'
+    'name': 'entity.name.type.kevscript'
+  }
+  {
+    'match': '[a-z_]([a-zA-Z0-9_-]*[a-zA-Z0-9_])?'
+    'name': 'variable.constant.kevscript'
+  }
+  {
+    'match': '''(?x)
+      (?<!\\$)(?:
+        (?:\\b[0-9]+\\b(?!\\.))
+      )(?!\\$)
+    '''
+    'captures':
+      '0':
+        'name': 'variable.other.numeric.kevscript'
+  }
+]
+'repository': {
+  'strings': {
+    'patterns': [
+      {
+        'begin': '\''
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.kevscript'
+        'end': '\''
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.kevscript'
+        'name': 'string.quoted.single.kevscript'
+        'patterns': [
+          {
+            'match': '\\\\(x\\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]?|37[0-7]?|[4-7][0-7]?|.)'
+            'name': 'constant.character.escape.kevscript'
+          }
+          {
+            'match': "[^']*[^\\n\\r'\\\\]$"
+            'name': 'invalid.illegal.string.kevscript'
+          }
+        ]
+      }
+      {
+        'begin': '"'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.string.begin.kevscript'
+        'end': '"'
+        'endCaptures':
+          '0':
+            'name': 'punctuation.definition.string.end.kevscript'
+        'name': 'string.quoted.double.kevscript'
+        'patterns': [
+          {
+            'match': '\\\\(x\\h{2}|[0-2][0-7]{0,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)'
+            'name': 'constant.character.escape.kevscript'
+          }
+          {
+            'match': '[^"]*[^\\n\\r"\\\\]$'
+            'name': 'invalid.illegal.string.kevscript'
+          }
+        ]
+      }
+    ]
+  }
+  'comments': {
+    'patterns': [
+      {
+        'begin': '/\\*\\*(?!/)'
+        'captures':
+          '0':
+            'name': 'punctuation.definition.comment.kevscript'
+        'end': '\\*/'
+        'name': 'comment.block.documentation.kevscript'
+      }
+      {
+        'begin': '/\\*'
+        'captures':
+          '0':
+            'name': 'punctuation.definition.comment.kevscript'
+        'end': '\\*/'
+        'name': 'comment.block.js'
+      }
+      {
+        'begin': '(^[ \\t]+)?(?=//)'
+        'beginCaptures':
+          '1':
+            'name': 'punctuation.whitespace.comment.leading.kevscript'
+        'end': '(?!\\G)'
+        'patterns': [
+          {
+            'begin': '//'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.definition.comment.kevscript'
+            'end': '\\n'
+            'name': 'comment.line.double-slash.kevscript'
+          }
+        ]
+      }
+    ]
+  }
+  'escape': {
+    'match': '\\\\.',
+    'name': 'constant.character.escape.kevscript'
+  }
+}
