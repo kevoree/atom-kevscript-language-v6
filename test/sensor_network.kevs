@@ -14,7 +14,7 @@ let confs = {
 }
 
 function initWebNode(nodeName, group, nodeVersion) {
-    instance web = nodeName JavascriptNode nodeVersion
+    instance web = nodeName JavascriptNode/nodeVersion
     instance chart1, chart2, chart3 = Chart/2
     add web [chart1, chart2, chart3]
     attach group web
@@ -22,7 +22,7 @@ function initWebNode(nodeName, group, nodeVersion) {
 }
 
 function initEdison(nodeName, group, nodeVersion) {
-    instance edison = nodeName JavascriptNode nodeVersion
+    instance edison = nodeName JavascriptNode/nodeVersion
     instance lcd = eu_heads.HeadsLCDDisplayComp/2
     instance led = eu_heads.HeadsDigitalWriteComp
     instance noise, light = eu_heads.HeadsAnalogSensorComp

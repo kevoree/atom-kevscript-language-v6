@@ -1,0 +1,23 @@
+import duke from "dukeboard/kevs/lib.kevs" // github
+import manu from "http://braindead.fr/daroth/kevs/lib.kevs" // classic http
+import "./mylib"
+
+// ===== content of ./myLib.kevs could be:
+function native myFunc() {{{
+  function MyClass() {}
+  MyClass.prototype = {
+    toString: function () {
+      
+    }
+  }
+  return "toto"; // this is JavaScript
+}}}
+
+instance someNode = JavaNode
+// =======================================
+
+// And here you can access myFunc() from ./myLib
+let myFuncResult = myFunc()
+
+let name = "node" + manu.random()
+let name2 = "node" + duke.random()

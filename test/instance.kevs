@@ -1,6 +1,8 @@
 instance node0 = JavaNode
 instance node0, node1 = JavaNode
 instance comp = "ticker" Ticker
+instance a = "" braindead.MyType/42 {}
+instance a = braindead.MyType/42 {}
 instance comp, comp2 = ConsolePrinter/42
 instance group = "sync" WSGroup/1 {}
 instance group, group2, test = WSGroup/tdefVersion duVersions
