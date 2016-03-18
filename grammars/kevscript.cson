@@ -13,11 +13,11 @@
     ]
   }
   {
-    'match': '\\b(add|remove|attach|detach|start|stop|set|bind|unbind|net-init|net-merge|net-remove|meta-init|meta-merge|meta-remove)\\b'
+    'match': '\\b(add|remove|attach|detach|start|stop|set|bind|unbind|net-init|net-merge|net-remove|meta-init|meta-merge|meta-remove|import|from)\\b'
     'name': 'keyword.statement.kevscript'
   }
   {
-    'match': '\\b(instance|let|function)\\b'
+    'match': '\\b(instance|let|function|native)\\b'
     'name': 'variable.kevscript'
   }
   {
