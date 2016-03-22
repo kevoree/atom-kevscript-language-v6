@@ -1,3 +1,4 @@
 add node0 comp
 add id1 [comp, comp2, comp3, obj.array[0].comp4]
 add obj.prop someVar
+add [one, two, three]

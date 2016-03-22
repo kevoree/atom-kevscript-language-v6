@@ -35,7 +35,7 @@
     ]
   }
   {
-    'match': '\\b(?<=add|attach|detach|bind|unbind|net-remove|meta-remove)\\b\\s+([^\\s]+)'
+    'match': '\\b(?<=add|attach|detach|bind|unbind|net-remove|meta-remove)\\b\\s+([^\\s\\[]+)'
     'captures': {
       '1': { 'name': 'entity.name.tag.kevscript' }
     }
