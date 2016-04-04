@@ -1,0 +1,17 @@
+// with literal number
+time 42 {
+  // do things at time 42
+  instance node = JavascriptNode
+  add node
+}
+
+// with func
+time getTime() {}
+
+// with variable
+time var {}
+time array[0] {}
+time obj.var {}
+time obj.func() {}
+time obj.array[0] {}
+time obj.func()[0] {}

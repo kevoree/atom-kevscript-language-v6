@@ -1,0 +1,8 @@
+let array = ['one', 'two']
+
+function getName() {
+  return array
+}
+
+instance node = getName()[1] JavaNode
+instance comp = array[1] Ticker
